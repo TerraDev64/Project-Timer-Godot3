@@ -9,14 +9,14 @@ func _enter_tree():
 	main_panel_instance = MainPanel.instance()
 	add_control_to_bottom_panel(main_panel_instance, "Test")
 	# Add the main panel to the editor's main viewport.
-	#get_editor_interface().get_editor_viewport().add_child(main_panel_instance)
+	get_editor_interface().get_editor_viewport().add_child(main_panel_instance)
 	# Hide the main panel. Very much required.
 	make_visible(false)
 
 
 func _exit_tree():
+	remove_control_from_bottom_panel(main_panel_instance)
 	if main_panel_instance:
-		remove_control_from_bottom_panel(main_panel_instance)
 		main_panel_instance.queue_free()
 
 
